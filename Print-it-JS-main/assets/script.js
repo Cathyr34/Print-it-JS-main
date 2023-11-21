@@ -22,16 +22,15 @@ let arrowRight = document.querySelector('.arrow_right');
 
 let currentIndex = 0;
 
-//ajoute la classe ‘dot_selected’ à l’élément dont l’index est égal à currentIndex, et supprime cette classe des autres éléments ‘dot’
-
 var dotsContainer = document.querySelector('.dots');
 dotsContainer.innerHTML = ''; // Supprime les points existants
 
+// Boucle pour créer un point pour chaque diapo
 for (var i = 0; i < slides.length; i++) {
     var dot = document.createElement('div');
     dot.className = 'dot';
     if (i == currentIndex) {
-        dot.classList.add('dot_selected');
+        dot.classList.add('dot_selected'); //ajoute la classe ‘dot_selected’
     }
     dotsContainer.appendChild(dot);
 }
@@ -45,13 +44,9 @@ function updateSlide() {
 	const imgElement = document.querySelector('.banner-img');
 	const textElement = document.querySelector('#banner p');
   
-// Met à jour l'image
+// Met à jour la diapo
 	imgElement.src = "./assets/images/slideshow/" + slide.image;
-  
-// Met à jour le texte
 	textElement.innerHTML = slide.tagLine;
-  
-// Met à jour les points
 	var dots = document.querySelectorAll('.dot');
     for (var i = 0; i < dots.length; i++) {
         if (i == currentIndex) {
@@ -62,7 +57,7 @@ function updateSlide() {
     }
 }
   
-// Met à jour le slide
+// Met à jour currentIndex
   	updateSlide();
 
 function nextSlide() {
@@ -79,6 +74,6 @@ function previousSlide() {
     if (currentIndex < 0) {
         currentIndex = slides.length - 1;
     }
-    console.log('previousSlide a été appelé, currentIndex est maintenant : ' + currentIndex);
+    console.log('previousSlide a été appelé, currentIndex est maintenant : ' - currentIndex);
     updateSlide();
 }
